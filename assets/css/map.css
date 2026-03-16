@@ -1,0 +1,84 @@
+/* Map container styling */
+#map {
+    height: 600px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Optional filter styling */
+.filters {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.filters label {
+    margin: 0 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.filters input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Leaflet Marker Styling */
+.leaflet-marker-icon {
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+/* Map Container Styling */
+.map-container {
+    width: 100%;
+    height: 600px;
+    margin: 20px 0;
+    border: 2px solid #2980B9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow for emphasis */
+}
+
+/* Map Title */
+.map-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #E74C3C; /* Red to contrast the blue background */
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Map Description */
+.map-description {
+    font-family: 'Open Sans', sans-serif;
+    color: #555; /* Darker gray for balance with light backgrounds */
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Buttons */
+.map-controls .btn {
+    background-color: #16A085; /* Green for a refreshing look */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+.map-controls .btn:hover {
+    background-color: #1ABC9C; /* Slightly lighter hover effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .map-container {
+        height: 400px; /* Reduced height for smaller screens */
+    }
+    
+    .map-controls .btn {
+        width: 100%;
+    }
+}

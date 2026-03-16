@@ -1,0 +1,267 @@
+/* General Section Styling with Background Image */
+.crud-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Centered Box Styling with Enhanced Transparency */
+.crud-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Increased opacity for better readability */
+    padding: 40px;
+    border-radius: 15px; /* Smoother rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header Styling */
+.crud-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2em; /* Larger heading */
+    font-weight: bold;
+}
+
+/* Box Container for Form Elements */
+.box-container, .crud-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px; /* More space between label and input */
+    font-size: 1.1em; /* Slightly larger labels */
+}
+
+/* Specific styling for dropdowns and dynamically generated input textboxes */
+.form-group select,
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="email"],
+.form-group textarea {
+    background-color: #f9f9f9; /* Softer background color for inputs */
+    border: 2px solid #ddd; /* Thicker border for more emphasis */
+    border-radius: 6px; /* Smoother rounded corners */
+    padding: 12px 15px; /* Increased padding for larger input fields */
+    font-size: 1.1em;
+    width: 100%; /* Ensure the input fields take the full width */
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for depth */
+}
+
+/* Hover and Focus Effects for Input and Dropdown Fields */
+.form-group select:focus,
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Blue border on focus */
+    background-color: #fff; /* Slightly lighter background on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Blue shadow on focus */
+    outline: none; /* Remove the default outline */
+}
+
+/* Button Styling */
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.2em; /* Larger button text */
+    font-weight: bold;
+    border-radius: 8px; /* Slightly more rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+}
+
+/* Success/Error Messages Styling */
+.alert-msg {
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    display: none; /* Initially hidden */
+}
+
+.success-msg {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.error-msg {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Fetched Data Title Styling */
+.fetched-data-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Table Styling for CRUD Operations */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for readability */
+}
+
+table th, table td {
+    padding: 15px; /* Increased padding for better look */
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #007bff; /* Dark blue for better visibility */
+    color: white;
+    text-transform: uppercase; /* Capitalize headers for a clean look */
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(52, 152, 219, 0.1); /* Light blue to complement the darker background */
+}
+
+.table-wrapper {
+    overflow-x: auto; /* Make the table scrollable if needed */
+    margin-bottom: 40px; /* Spacing between the table and next section */
+}
+
+/* Messages Styling */
+.result-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    margin-bottom: 40px; /* Ensure enough space between sections */
+}
+
+/* Result Section Styling */
+#result-section {
+    margin-top: 40px; /* Create space between form and data section */
+    display: none; /* Hidden by default */
+    opacity: 0; /* Initial opacity set to 0 for transition effect */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in effect */
+}
+
+#result-section.show {
+    display: block; /* Ensure it's shown when there’s content */
+    opacity: 1; /* Fade-in effect when data is present */
+}
+
+/* Data Messages Styling */
+#messages {
+    background: rgba(255, 255, 255, 0.95); /* Increased opacity for a more solid look */
+    padding: 25px;
+    border-radius: 12px; /* More pronounced rounded corners */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15); /* Added deeper shadow for better separation */
+    max-width: 90%; /* Constrain width to maintain consistency */
+    margin: 20px auto; /* Center the container */
+    transition: all 0.3s ease-in-out; /* Smooth transition for appearing */
+}
+
+#messages p {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #444;
+}
+
+/* Form Styling */
+form {
+    margin: 20px 0;
+}
+
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif; /* Clean, modern font */
+    font-size: 16px;
+    color: #333; /* Dark text for readability */
+}
+
+form input[type="submit"], form button {
+    background-color: #3498DB;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+form input[type="submit"]:hover, form button:hover {
+    background-color: #2980B9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .crud-container {
+        width: 90%;
+    }
+
+    table, form input, form select, form textarea {
+        width: 100%;
+    }
+}
+
+/* Buttons */
+.btn {
+    background-color: #0a121b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #1A5276;
+}

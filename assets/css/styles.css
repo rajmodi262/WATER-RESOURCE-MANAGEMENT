@@ -1,0 +1,306 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #333; /* Dark gray for light backgrounds */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header Styling */
+header {
+    background-image: url('/mnt/data/header-bg.jpg'); /* Dark ocean wave background */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    text-align: center;
+    color: white; /* White text for contrast */
+}
+
+header h1 {
+    font-size: 2.8em;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    color: #ffffff; /* White text */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white; /* White for dark background */
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
+    border-radius: 5px;
+}
+
+/* Hero Section with Video Background */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* White text for dark video background */
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 4em; /* Large heading for emphasis */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: #ffffff; /* White text for contrast */
+}
+
+.hero p {
+    font-size: 1.4em;
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+.cta-button {
+    background-color: #ff9800; /* Bright CTA button */
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e68a00;
+}
+
+/* Main Section Cards */
+.main-sections {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 10px;
+}
+
+.section-card {
+    background-color: white;
+    width: 45%;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+}
+
+.section-card h2 {
+    color: #1b73ba; /* Blue for headings */
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.section-card p {
+    color: #555; /* Dark gray for body text */
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.section-card .button {
+    background-color: #1b73ba;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.section-card .button:hover {
+    background-color: #145a86;
+}
+
+/* Footer Section (Dark Background) */
+footer {
+    background-image: url('/mnt/data/footer-bg.jpg'); /* Dark footer background */
+    background-size: cover;
+    background-position: center;
+    color: white; /* White text for contrast */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+footer a {
+    color: #ff9800; /* Bright orange for CTA links */
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* About Us Section (Dark Background) */
+.about-us {
+    background-image: url('/mnt/data/technology-bg.jpg'); /* Dark background */
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    text-align: center;
+    color: white; /* White text */
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+    padding: 40px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+/* Objectives Section (Light Background) */
+.objectives {
+    background-image: url('/mnt/data/objectives-bg.jpg'); /* Light background */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: #333333; /* Dark text for light background */
+}
+
+.objective-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.objective-content ul li {
+    padding: 10px;
+    font-size: 1.2em;
+    color: #333333;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Statistics Section (Light Background) */
+.statistics {
+    background-image: url('/mnt/data/statistics-bg.jpg'); /* Light background */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: #333333; /* Dark text for light background */
+}
+
+/* Conclusion Section (Light Background) */
+.conclusion {
+    background-image: url('/mnt/data/conclusion-bg.jpg'); /* Light background */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: #333333; /* Dark text for light background */
+}
+
+/* Contact Section (Dark Background) */
+.contact {
+    background-image: url('/mnt/data/contact-bg.jpg'); /* Dark background */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: white; /* White text for contrast */
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    transition: width 0.3s;
+    overflow-x: hidden;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+}
+
+.sidebar .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/* Collapse Sidebar on Smaller Screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
