@@ -49,6 +49,49 @@ It tackles real-world challenges including **floods, droughts, water pollution, 
 
 ---
 
+## 🏗️ System Architecture
+
+The platform follows a classic Model-View-Controller (MVC) directory layout built using object-oriented PHP classes, a Leaflet-driven geospatial presentation tier, and a highly normalized relational database.
+
+```mermaid
+graph TB
+    %% Presentation Layer
+    subgraph Presentation Tier [Frontend Client]
+        MAP[Leaflet.js Map Canvas] -->|Map Navigation| OSM[OpenStreetMap Layers]
+        MAP -->|Overlay Toggles| MC[Marker Clustering Engine]
+        CRUD_UI[Dynamic CRUD Panel] -->|AJAX Fetch API| Forms[Dynamic HTML Forms]
+    end
+
+    %% Controller / API Layer
+    subgraph Application Tier [PHP Backend Web Server]
+        API[api/crud_handler.php Router]
+        Class_R[classes/River.php Model]
+        Class_D[classes/Disaster.php Model]
+        
+        API -->|Instantiates| Class_R
+        API -->|Instantiates| Class_D
+    end
+
+    %% Database Layer
+    subgraph Data Tier [Relational Database]
+        DB[(MySQL Database: project_resource)]
+        DB_Conn[config/db.php Connection]
+    end
+
+    %% Flows
+    CRUD_UI -->|JSON AJAX Payload| API
+    API -->|Prepared mysqli Statements| DB_Conn
+    DB_Conn -->|Queries/Updates| DB
+    DB_Conn -->|Returns Rows| API
+    API -->|Sends JSON Response| CRUD_UI
+
+    style Presentation Tier fill:#111827,stroke:#10b981,stroke-width:2px,color:#fff
+    style Application Tier fill:#111827,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style Data Tier fill:#111827,stroke:#e5c100,stroke-width:2px,color:#fff
+```
+
+---
+
 ## 🖥️ Live Pages
 
 | Page | File | Description |
@@ -118,20 +161,42 @@ The management panel (`crud_operations.php`) supports **Create, Read, Update, De
 | `tourism_project` | `Project_ID` | Project Name, Budget, Dam ID, City ID, Project Type |
 | `weather_station` | `Station_ID` | Station Name, Coordinates, Monitoring Capability, City ID |
 
-### Operation Flow
+### Operation Flow Sequence
 
-```
-User selects Operation (Create / Read / Update / Delete)
-        ↓
-User selects Table
-        ↓
-Dynamic form fields appear (specific to the selected table)
-        ↓
-Form submits via fetch() → AJAX POST to crud_operations.php
-        ↓
-PHP processes + MySQL prepared statement executes
-        ↓
-JSON response → Success/Error displayed in animated result section
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Admin as System Administrator
+    participant UI as CRUD Interface (crud_operations.php)
+    participant API as AJAX Router (api/crud_handler.php)
+    participant Model as PHP Data Models (River/Disaster Class)
+    participant DB as MySQL Database
+
+    Admin->>UI: Selects Operation (Create/Read/Update/Delete) & Table
+    UI->>UI: Generate dynamic input form based on table metadata
+    Admin->>UI: Enters data & clicks SUBMIT
+    UI->>UI: Validate form inputs on client-side
+    UI->>API: HTTP POST (Fetch API JSON Payload)
+    
+    API->>API: Check session credentials & sanitize raw fields
+    API->>Model: Instantiate model with properties
+    
+    alt Create / Update / Delete Operations
+        Model->>DB: Execute secure mysqli prepared statement
+        DB-->>Model: Return status code & affected rows count
+    else Read Operations
+        Model->>DB: Execute SELECT query with pagination parameters
+        DB-->>Model: Return result rows array
+    end
+    
+    Model-->>API: Format outcome message or data rows
+    API-->>UI: Send HTTP 200 JSON Response (status, message, payload)
+    
+    alt Success Response
+        UI->>UI: Render green alert banner & refresh active Data Table
+    else Error Response
+        UI->>UI: Render red alert banner & keep form fields populated
+    end
 ```
 
 ---
